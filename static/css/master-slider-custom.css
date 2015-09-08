@@ -1,0 +1,218 @@
+
+/* 
+    Created on : 4 Jun, 2015, 10:12:47 PM
+    Author     : Design_mylife
+*/
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,400italic);
+body{
+    font-family: 'Lato', sans-serif;
+}
+.ms-layer.thin-text-white {
+  color: #FFF;
+  background: rgba(0, 0, 0, 0.72);
+  font-size: 77px;
+ line-height: 77px;
+  font-weight: 100;
+  padding: 20px 25px ;
+  margin: 0;
+  text-shadow: -1px 1px #000;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+}
+
+.slide-2 .whitetext {
+margin-top: 83px !important;
+}
+.ms-layer.thin-text-black {
+  color: black;
+  font-size: 27px;
+   line-height: 27px;
+  font-weight: 300;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 10px 25px !important;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+}
+ .slide-pattern {
+  background: url(../img/pattern.png) scroll repeat;
+  width: 100%;
+  height: 100%;
+  z-index: 8;
+  -webkit-transform: translateZ(0.4px);
+  -moz-transform: translateZ(0.4px);
+  -ms-transform: translateZ(0.4px);
+  -o-transform: translateZ(0.4px);
+  transform: translateZ(0.4px);
+  position: absolute;
+  top: 0;
+}
+.ms-layer.bold-text-white {
+  color: #FFF;
+  font-weight: 700;
+  font-size: 85px;
+  text-shadow: -1px 1px black;
+  margin: 0;
+   font-family: 'Lato', sans-serif;
+}
+.slide-1 .bigtext {
+  width: 100%;
+  text-align: center;
+  line-height: 77px;
+  margin-top: 100px;
+}
+.slide-1 .blacktext{
+    
+}
+
+.slide-3{
+	color:white;
+	text-shadow: -1px 1px black;
+}
+
+.slide-3 .box{
+	left: 60px;
+	top: 40% !important;
+	width: 46%;
+	padding-bottom: 18% !important;
+	background: rgba(0, 0, 0, 0.72);
+}
+
+.slide-3 .small-text {
+	margin: 0;
+	top: 40% !important;
+	font-weight: 300;
+	left: 82px;
+	padding: 0;
+	margin-top: 16px;
+        font-family: 'Lato', sans-serif;
+}
+
+.slide-3 .medium-text {
+	font-weight: 100;
+	top: 46% !important;
+	font-size: 77px;
+	left: 73px;
+	margin: 0;
+	padding: 0;
+	margin-top: 25px;
+        font-family: 'Lato', sans-serif;
+}
+
+.slide-3 .big-text{
+	font-weight: 900;
+	left: 77px;
+	top: 46% !important;
+	padding: 0;
+	font-size: 80px;
+	margin: 0;
+	margin-top: 90px;
+        font-family: 'Lato', sans-serif;
+}
+.ms-layer.light-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 58px;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0px;
+       font-family: 'Lato', sans-serif;
+}
+.ms-layer.normal-title{
+    color:#eee;
+    font-size: 20px;
+     text-transform: uppercase;
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+}
+
+
+/***team slider****/
+.ms-staff-carousel{
+	max-width:1170px;
+	overflow: hidden;
+	margin: 25px auto;
+	position: relative;
+}
+
+.ms-staff-carousel .ms-view{
+	overflow:visible;
+	background-color: transparent;
+}
+
+.ms-staff-carousel .ms-nav-prev,
+.ms-staff-carousel .ms-nav-next {
+    background: url(../img/arrows.png) white no-repeat -7px -57px;
+    width: 35px;
+    height: 40px;
+    left: -35px;
+    margin-top: -17px;
+    box-shadow: 0px 1px 0px 0px rgb(190, 190, 190);
+    position: absolute;
+    top:50%;
+    cursor: pointer;
+}
+
+.ms-staff-carousel .ms-nav-next {
+	background-position: -6px -7px;
+	right:-35px;
+	left:auto;
+}
+
+.ms-staff-carousel .ms-staff-info{
+	font-family: 'Lato', sans-serif;
+	text-align: center;
+	max-width: 600px;
+	margin-top:30px;
+	min-height:220px;
+	color:#222222;
+}
+	.ms-staff-carousel .ms-staff-info h3{
+		font-weight: 300;
+		font-size: 22pt;
+		margin:0px;
+	}
+	
+	.ms-staff-carousel .ms-staff-info h4{
+		font-weight: 300;
+		color:#787878;
+		font-size: 15pt;
+		margin:3px;
+	}
+	
+	.ms-staff-carousel .ms-staff-info .email a{text-decoration: none; color:#3f95ab;}
+	.ms-staff-carousel .ms-staff-info.email,.ms-staff-info p {
+	    margin: 4px;
+	     font-size: 11pt;
+	}
+
+.ms-staff-carousel.ms-round .ms-slide-bgcont {
+	border-radius: 5000px;
+	border: solid 8px rgb(230, 230, 230);
+	margin: 0 -8px;
+}
+
+.ms-staff-carousel.ms-round .ms-nav-prev,
+.ms-staff-carousel.ms-round .ms-nav-next {
+    background-color:transparent;
+    box-shadow : none;
+    left:-45px;
+ }
+ 
+.ms-staff-carousel.ms-round .ms-nav-next {
+    left:auto;
+    right:-45px
+}
+.ms-socials{
+    margin-top: 15px;
+}
+.ms-socials li a{
+    width: 32px;
+  height: 32px;
+  line-height: 32px;
+  background-color: #0FAF97;
+  color: #fff;
+  display: block;
+}
+.ms-socials li a i{
+    display: block;
+}

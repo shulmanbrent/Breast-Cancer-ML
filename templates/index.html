@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+
+        <section id="slider-sec" class="slider-reg" style="background-image: url('/static/img/huntsman_blurred.jpg'); background-size: cover; height:100%; margin-top:-62px; background-position-y: 62px;">
+            <div class="main-flex-slider" style="height:100%">
+                <ul class="slides" style="height:100%">
+                    <li style="height:100%">
+                        <figure>
+
+                            <img src="static/img/huntsman_blurred.jpg" class="img-responsive" alt="slider-img-1" style="visibility: hidden">
+                            <figcaption class="slider-overlay ">
+                                <div class="slider-text animated fadeInDown" style="padding-top: 62px">
+                                    <h1>Breast Cancer Predictor</h1>
+                                    <p>
+                                        Runs machine learning algorithms to predict breast cancer
+                                    </p>
+                                    <p class="slide-btn"><a href="/predictor" class="btn btn-white btn-lg">Let's get started</a></p>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+        </section><!--main flex slider end-->
+{% endblock %}
