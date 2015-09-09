@@ -18,13 +18,13 @@
             </div>  
 
             <div class="row">
-                <div class="col-md-3 col-sm-6 margin-btm-20">
+                <div class="col-md-5 col-sm-6 margin-btm-20">
                     <div class="pricing-wrapper">
                         <div class="pricing-head">
                             <h3>Test your own data</h3>
                         </div>
 
-                        <div class="pricing-desc">
+                        <div class="pricing-desc" style="display:inline-block">
                             <ul class="list-unstyled">
                                 {% for field in fields %}
                                 <li><select form="first_form" name="{{ field }}" style="margin: 5px">
@@ -32,30 +32,35 @@
                                         <option value="{{ i }}">{{ i }}</option>
                                         {% endfor %}
                                         </select> {{ field }} </li>
+                                        {% if loop.index == 5 %}
+                            </ul>
+                        </div>
+                        <div class="pricing-desc" style="display:inline-block; vertical-align: top;">
+                            <ul class="list-unstyled">
+                                        {% endif %}
                                 {% endfor %}
+                                
                             </ul>
                         </div>
                     </div><!--pricing wrapper-->
                 </div><!--pricing col end-->
-
+                {% if prediction %}
                 <div class="col-md-3 col-sm-6 margin-btm-20">
                     <div class="pricing-wrapper">
                         <div class="pricing-head">
-                            <h3>Nursing</h3>
+                            <h3>Results</h3>
                         </div>
                         <div class="pricing-desc">
-                        <div class="pricing-rate">
-                            <h4>Sector Requirements</h4>
-                        </div>
-                            Given your input, out prediction is {{ prediction }}
+                            Given your input, our prediction is {{ prediction }}
                         </div>
                     </div><!--pricing wrapper-->
                 </div><!--pricing col end-->
+                {% endif %}
             </div><!--pricing 4 col row end-->
             <div class="space-40"></div>
             <form id="first_form" method="POST" action=""></form>
             <p><center><a onclick="$('#first_form').submit()" href="#" class="btn theme-btn-default btn-lg" style="background-color:#000;color:#FFF;size:large">Submit </a></p></center><div class="space-40"></div>
-            
+            {{ graph }}
             
         </div><!--pricing page end-->
         </div>

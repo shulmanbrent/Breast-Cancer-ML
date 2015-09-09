@@ -4,6 +4,8 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 from sklearn import linear_model
 from sklearn.externals import joblib
+from pylab import scatter, show, legend, xlabel, ylabel
+from numpy import where
 
 app = Flask(__name__, static_url_path='/static')
 
@@ -41,27 +43,41 @@ def predictor():
 
     if request.method == "POST":
         inp = [0 for i in range(9)]
-        print inp
         # Sorting data
         for label, value in request.form.items():
             i = feature_labels.index(label)
             inp[i] = int(value)
-        print inp
         inp = numpy.array(inp)
-        print inp
-
-        print inp.shape
         clf = joblib.load('my_model.pkl')
         prediction = clf.predict(inp)
+        # graph = render_graph(session)
         return render_template("model.html", fields=feature_labels,
-                                prediction=str(prediction))
+                                prediction=str(prediction),
+                                acc=session['acc'])
     else:
         clf, features, labels = open_data_file()
+        # Save to session variable
+        
         joblib.dump(clf, 'my_model.pkl', compress=9)
         acc = clf.score(features, labels)
         acc *= 100
-        return render_template("model.html", acc=int(acc), 
+        session['acc'] = int(acc)
+        return render_template("model.html", acc=int(acc),
                                 fields=feature_labels)
+
+
+def render_graph(session):
+    # BAD! needs to be fixed
+    _, features, labels = open_data_file()
+    X = features[:, 0:2]
+    malignant = where(labels == 4)
+    benign = where(labels == 2)
+    scatter(X[malignant, 0], X[malignant, 1], marker='o', c='b')
+    scatter(X[benign, 0], X[benign, 1], marker='x', c='r')
+    xlabel(feature_labels[0])
+    ylabel(feature_labels[1])
+    legend(["Malignant", "Benign"])
+    return show
 
 
 def open_data_file():
