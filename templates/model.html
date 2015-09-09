@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+
+        <section id="content-region-3" class="padding-40 page-tree-bg">
+            <div class="container">
+                <h3 class="page-tree-text">
+                    Model predictions
+                </h3>
+            </div>
+        </section><!--page-tree end here-->
+        <div class="space-70"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="heading-mini"><center>Using a Logisitic Regression, we achieved over {{ acc }}% accuracy on your training data</center></h4>
+                </div>
+            </div>  
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 margin-btm-20">
+                    <div class="pricing-wrapper">
+                        <div class="pricing-head">
+                            <h3>Test your own data</h3>
+                        </div>
+
+                        <div class="pricing-desc">
+                            <ul class="list-unstyled">
+                                {% for field in fields %}
+                                <li><select form="first_form" name="{{ field }}" style="margin: 5px">
+                                        {% for i in range(10) %}
+                                        <option value="{{ i }}">{{ i }}</option>
+                                        {% endfor %}
+                                        </select> {{ field }} </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div><!--pricing wrapper-->
+                </div><!--pricing col end-->
+
+                <div class="col-md-3 col-sm-6 margin-btm-20">
+                    <div class="pricing-wrapper">
+                        <div class="pricing-head">
+                            <h3>Nursing</h3>
+                        </div>
+                        <div class="pricing-desc">
+                        <div class="pricing-rate">
+                            <h4>Sector Requirements</h4>
+                        </div>
+                            Given your input, out prediction is {{ prediction }}
+                        </div>
+                    </div><!--pricing wrapper-->
+                </div><!--pricing col end-->
+            </div><!--pricing 4 col row end-->
+            <div class="space-40"></div>
+            <form id="first_form" method="POST" action=""></form>
+            <p><center><a onclick="$('#first_form').submit()" href="#" class="btn theme-btn-default btn-lg" style="background-color:#000;color:#FFF;size:large">Submit </a></p></center><div class="space-40"></div>
+            
+            
+        </div><!--pricing page end-->
+        </div>
+
+{% endblock %}

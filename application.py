@@ -3,8 +3,11 @@ import numpy
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 from sklearn import linear_model
+from sklearn.externals import joblib
 
 app = Flask(__name__, static_url_path='/static')
+
+app.secret_key = 'F12Zr47j\3yX R~X@H!jmM]Lwf/,?KT'
 
 dat_labels = ["Sample code number",
 			  "Clump Thickness",
@@ -12,11 +15,21 @@ dat_labels = ["Sample code number",
 			  "Uniformity of Cell Shape",
 			  "Marginal Adhesion",
 			  "Single Epithelial Cell Size",
-			  "Bare Nuclei","Bland Chromatin",
+			  "Bare Nuclei",
+              "Bland Chromatin",
 			  "Normal Nucleoli",
 			  "Mitoses",
 			  "Class"]
 
+feature_labels = ["Clump Thickness",
+              "Uniformity of Cell Size",
+              "Uniformity of Cell Shape",
+              "Marginal Adhesion",
+              "Single Epithelial Cell Size",
+              "Bare Nuclei",
+              "Bland Chromatin",
+              "Normal Nucleoli",
+              "Mitoses"]
 
 @app.route('/')
 def main():
@@ -25,9 +38,30 @@ def main():
 
 @app.route("/predictor", methods=["GET", "POST"])
 def predictor():
-    clf, features, labels = open_data_file()
-    acc = clf.score(features, labels)
-    return str(acc)
+
+    if request.method == "POST":
+        inp = [0 for i in range(9)]
+        print inp
+        # Sorting data
+        for label, value in request.form.items():
+            i = feature_labels.index(label)
+            inp[i] = int(value)
+        print inp
+        inp = numpy.array(inp)
+        print inp
+
+        print inp.shape
+        clf = joblib.load('my_model.pkl')
+        prediction = clf.predict(inp)
+        return render_template("model.html", fields=feature_labels,
+                                prediction=str(prediction))
+    else:
+        clf, features, labels = open_data_file()
+        joblib.dump(clf, 'my_model.pkl', compress=9)
+        acc = clf.score(features, labels)
+        acc *= 100
+        return render_template("model.html", acc=int(acc), 
+                                fields=feature_labels)
 
 
 def open_data_file():
