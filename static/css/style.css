@@ -209,7 +209,7 @@ input[type="color"],
   font-size: 12px;
   color: #7a7a7a;
   height: 40px;
-  background: rgb(19, 16, 16);
+  background: #fff;
   -moz-transition: all 0.3s ease-in;
   -o-transition: all 0.3s ease-in;
   -webkit-transition: all 0.3s ease-in;
@@ -329,8 +329,8 @@ h3.heading-sec {
 
 /*******************bootstrap overrides **************************/
 .navbar-default {
-  background-color: #fff;
-  border-color: #eeeeee;
+  background-color: pink;
+  border-color: transparent;
   -webkit-box-shadow: 0 5px 6px -6px #ccc;
   -moz-box-shadow: 0 5px 6px -6px #ccc;
   -ms-box-shadow: 0 5px 6px -6px #ccc;
@@ -1086,7 +1086,7 @@ h4.portfolio-post-title {
 
 /**********************************************footer*****************************************/
 #footer {
-  background-color: #000000;
+  background-color: pink;
   padding: 60px 0;
 }
 
@@ -1094,7 +1094,7 @@ h4.portfolio-post-title {
   font-size: 15px;
   font-weight: 600;
   text-transform: uppercase;
-  color: #fff;
+  color: black;
   margin-bottom: 30px;
   letter-spacing: 2px;
 }
@@ -1105,7 +1105,7 @@ h4.portfolio-post-title {
 
 .footer-col p {
   font-size: 14px;
-  color: #b3b3b3;
+  color: black;
 }
 
 .post-list li a {
@@ -1181,12 +1181,12 @@ h4.portfolio-post-title {
 
 /****************breadcrumbs*********************************************/
 .page-tree-bg {
-  background-image: url(../img/bread-bg.png);
-  background-color: #0FAF97;
+  background-image: url(../img/pink_ribbon.jpg);
+  background-color: pink;
   padding: 100px 0;
   width: 100%;
   position: relative;
-  background-size: cover;
+  /*background-size: cover;*/
   background-attachment: fixed;
 }
 
