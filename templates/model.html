@@ -4,21 +4,23 @@
 
         <section id="content-region-3" class="padding-40 page-tree-bg">
             <div class="container">
-                <h3 class="page-tree-text">
+                <h3 class="page-tree-text" style="color:black">
                     Model predictions
                 </h3>
             </div>
         </section><!--page-tree end here-->
-        <div class="space-70"></div>
+        <div class="space-70" id="results" style="border-top:1px solid #FFCACA"></div>
         <div class="container">
+            {% for classifier, accuracy in acc.items() %}
             <div class="row">
                 <div class="col-md-12">
-                    <h4 class="heading-mini"><center>Using a Logisitic Regression, we achieved over {{ acc }}% accuracy on your training data</center></h4>
+                    <h4 class="heading-mini"><center>Using a {{ classifier }}, we achieved {{ accuracy }}% accuracy on your training data</center></h4>
                 </div>
             </div>  
+            {% endfor %}
 
             <div class="row">
-                <div class="col-md-5 col-sm-6 margin-btm-20">
+                <div class="col-md-6 col-sm-6 margin-btm-20">
                     <div class="pricing-wrapper">
                         <div class="pricing-head">
                             <h3>Test your own data</h3>
@@ -28,7 +30,7 @@
                             <ul class="list-unstyled">
                                 {% for field in fields %}
                                 <li><select form="first_form" name="{{ field }}" style="margin: 5px">
-                                        {% for i in range(10) %}
+                                        {% for i in range(1,11) %}
                                         <option value="{{ i }}">{{ i }}</option>
                                         {% endfor %}
                                         </select> {{ field }} </li>
@@ -39,7 +41,7 @@
                             <ul class="list-unstyled">
                                         {% endif %}
                                 {% endfor %}
-                                
+                            <li><center><a onclick="$('#first_form').submit()" href="#" class="btn theme-btn-default btn-lg" style="background-color:#000;color:#FFF;size:large">Submit </a></center></li>
                             </ul>
                         </div>
                     </div><!--pricing wrapper-->
@@ -51,17 +53,15 @@
                             <h3>Results</h3>
                         </div>
                         <div class="pricing-desc">
-                            Given your input, our prediction is {{ prediction }}
+                            <center><h2>Given your input, our prediction is: {{ prediction }}</h2></center>
                         </div>
                     </div><!--pricing wrapper-->
                 </div><!--pricing col end-->
                 {% endif %}
             </div><!--pricing 4 col row end-->
             <div class="space-40"></div>
-            <form id="first_form" method="POST" action=""></form>
-            <p><center><a onclick="$('#first_form').submit()" href="#" class="btn theme-btn-default btn-lg" style="background-color:#000;color:#FFF;size:large">Submit </a></p></center><div class="space-40"></div>
-            {{ graph }}
-            
+            <form id="first_form" method="POST" action="#results"></form>
+            <div class="space-40"></div>            
         </div><!--pricing page end-->
         </div>
 
