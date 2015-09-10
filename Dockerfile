@@ -18,6 +18,14 @@ RUN apt-get install -y nano locales curl unzip openssl
 
 RUN pip install -U scikit-learn
 RUN pip install flask
+RUN pip install pyyaml
+
+RUN apt-get install --assume-yes python-nose g++
+RUN pip install cython
+RUN pip install Theano
+RUN pip install keras
+
+# install keras
 
 # Stage files in current folder in /data
 ADD . /data
